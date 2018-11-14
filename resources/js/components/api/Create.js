@@ -31,7 +31,16 @@ export default class Create extends Component{
     handleSubmit(e){
         e.preventDefault();
         console.log(this.state)
+
+        axios.post('/api/users', this.state).then(response => {
+            console.log(response)
+        }).then(error => {
+            console.log(error)
+        })
+
     }
+
+
 
     render(){
         return (

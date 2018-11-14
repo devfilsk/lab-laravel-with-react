@@ -50,7 +50,10 @@
                             </li>
                         @else
                             <li class="nav-item active">
-                                <a class="nav-link" href="/users">Home</a>
+                                <a class="nav-link" href="/users">Users</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/router/home">Router Home</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

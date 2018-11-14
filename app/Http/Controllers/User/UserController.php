@@ -36,10 +36,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        $user->password = bcrypt($request->get('name'));
+//        $user = new User();
+//        $user->name = $request->get('name');
+//        $user->email = $request->get('email');
+//        $user->password = bcrypt($request->get('name'));
+//
+//        $user->save();
+//        return $user;
+        $dados =  $request->all();
+        $dados['password'] = bcrypt($dados['password']);
+        $user = User::create($dados['password']);
+        return $user;
     }
 
     /**

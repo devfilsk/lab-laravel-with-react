@@ -37,15 +37,7 @@ export default class User extends Component{
                     </thead>
                   <tbody>
                   { this.state.data.map((user, i) => (
-                      <tr>
-                          <td>{user.id}</td>
-                          <td>{user.name}</td>
-                          <td>{user.email}</td>
-                          <td>
-                              <a href="" className="btn btn-primary">Editar</a>
-                              <a href="" className="btn btn-primary">Excluir</a>
-                          </td>
-                      </tr>
+                        <UserRow key={i} i={i} user={user} object={this}/>
                     )
                   )}
 
@@ -53,6 +45,22 @@ export default class User extends Component{
               </table>
           </div>
         );
+    }
+}
+
+class UserRow extends Component{
+    render(){
+        return (
+            <tr key={this.props}>
+                <td>{this.props.user.id}</td>
+                <td>{this.props.user.name}</td>
+                <td>{this.props.user.email}</td>
+                <td>
+                    <a href={"/users/"+this.props.user.id+"/edit"} className="btn btn-primary">Editar</a>
+                    <a href="" className="btn btn-primary">Excluir</a>
+                </td>
+            </tr>
+        )
     }
 }
 //é necessário este tratamento

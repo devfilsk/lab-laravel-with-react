@@ -15,6 +15,6 @@ export default class IndexRouter extends Component {
     }
 }
 
-if (document.getElementById('router')) {
-    ReactDOM.render(<IndexRouter />, document.getElementById('router'));
+if (document.getElementById('router-home')) {
+    ReactDOM.render(<IndexRouter />, document.getElementById('router-home'));
 }

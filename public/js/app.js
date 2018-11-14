@@ -46105,6 +46105,8 @@ var User = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'col-lg-12' },
@@ -46153,39 +46155,7 @@ var User = function (_Component) {
                         'tbody',
                         null,
                         this.state.data.map(function (user, i) {
-                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'tr',
-                                null,
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'td',
-                                    null,
-                                    user.id
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'td',
-                                    null,
-                                    user.name
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'td',
-                                    null,
-                                    user.email
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'td',
-                                    null,
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'a',
-                                        { href: '', className: 'btn btn-primary' },
-                                        'Editar'
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'a',
-                                        { href: '', className: 'btn btn-primary' },
-                                        'Excluir'
-                                    )
-                                )
-                            );
+                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(UserRow, { key: i, i: i, user: user, object: _this2 });
                         })
                     )
                 )
@@ -46195,10 +46165,62 @@ var User = function (_Component) {
 
     return User;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (User);
+
+var UserRow = function (_Component2) {
+    _inherits(UserRow, _Component2);
+
+    function UserRow() {
+        _classCallCheck(this, UserRow);
+
+        return _possibleConstructorReturn(this, (UserRow.__proto__ || Object.getPrototypeOf(UserRow)).apply(this, arguments));
+    }
+
+    _createClass(UserRow, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'tr',
+                { key: this.props },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'td',
+                    null,
+                    this.props.user.id
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'td',
+                    null,
+                    this.props.user.name
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'td',
+                    null,
+                    this.props.user.email
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'td',
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'a',
+                        { href: "/users/" + this.props.user.id + "/edit", className: 'btn btn-primary' },
+                        'Editar'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'a',
+                        { href: '', className: 'btn btn-primary' },
+                        'Excluir'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return UserRow;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 //é necessário este tratamento
 
 
-/* harmony default export */ __webpack_exports__["default"] = (User);
 if (document.getElementById('users')) {
     // ReactDOM.render(<User />, document.getElementById('users'));
     __WEBPACK_IMPORTED_MODULE_1_react_dom__["render"](__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(User, null), document.getElementById('users'));
@@ -46267,6 +46289,12 @@ var Create = function (_Component) {
         value: function handleSubmit(e) {
             e.preventDefault();
             console.log(this.state);
+
+            axios.post('/api/users', this.state).then(function (response) {
+                console.log(response);
+            }).then(function (error) {
+                console.log(error);
+            });
         }
     }, {
         key: 'render',
@@ -46424,8 +46452,8 @@ var IndexRouter = function (_Component) {
 /* harmony default export */ __webpack_exports__["default"] = (IndexRouter);
 
 
-if (document.getElementById('router')) {
-    __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(IndexRouter, null), document.getElementById('router'));
+if (document.getElementById('router-home')) {
+    __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(IndexRouter, null), document.getElementById('router-home'));
 }
 
 /***/ }),
